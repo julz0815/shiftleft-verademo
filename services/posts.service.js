@@ -5,10 +5,10 @@ exports.addBlab = (data, callback) => {
   //newDate.format("%Y-%m-%d %H:%M:%s")
   db.query(
     //bad code SQLi
-    `INSERT INTO blabs (blabber, content, timestamp) VALUES ("`+data.user+`", "`+data.blab+`", "`+newDate+`")`,
+    //`INSERT INTO blabs (blabber, content, timestamp) VALUES ("`+data.user+`", "`+data.blab+`", "`+newDate+`")`,
 
     //good code
-    //`INSERT INTO blabs (blabber, content, timestamp) VALUES (?, ?, ?)`,
+    `INSERT INTO blabs (blabber, content, timestamp) VALUES (?, ?, ?)`,
     [data.user, data.blab, new Date()],
     (error, results, fields) => {
       if (error) {
